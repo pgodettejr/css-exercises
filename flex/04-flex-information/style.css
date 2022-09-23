@@ -1,16 +1,55 @@
 body {
   font-family: 'Courier New', Courier, monospace;
+  /* TOP placed text-align: center; here instead of adding a group selector for text and 
+  placing it there */
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  /* display: flex; */
+  width: 200px;
+  height: 200px;
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  /* Because of TOP's other CSS changes, they were able to leave width & height at 100px */
 }
 
 .title {
   font-size: 36px;
   font-weight: 900;
+  text-align: center;
+  /* TOP added a margin-bottom of 32px here instead of a margin-top 32px under images 
+  selector. See "body" changes for text-align: center; placement */
 }
+
+/* In the container div that TOP created, display: flex, justify-content: center, and 
+gap: 52px were added instead of my solution of adding images and description divs then 
+creating a group selector with description and text classes. */
+
+.images {
+  display: flex;
+  margin-top: 32px;
+  /* margin-left: 52px; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.description .text {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  /* margin-left: 52px; */
+  /* flex: auto; */
+  /* flex-flow: row wrap; */
+}
+
+/* A max-width 200px was added to the info selector that TOP created */
 
 /* do not edit this footer */
 .footer {
