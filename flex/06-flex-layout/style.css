@@ -7,6 +7,36 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+a {
+  font-weight: 700;
+  color: #706e6e;
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+  margin: 8px;
+  padding: 8px;
+  gap: 12px;
+  list-style-type: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* flex: 1; */
+}
+
+/* Do we need a group selector here named ".content .???" and place flex: 1 or flex: 1 1 auto; under it? */
+
 img {
   width: 600px;
 }
@@ -15,6 +45,7 @@ button {
   font-family: Roboto, sans-serif;
   border: none;
   border-radius: 8px;
+  padding: 8px;
   background: #eee;
 }
 
@@ -24,4 +55,11 @@ input {
   padding: 8px 24px;
   width: 400px;
   margin-bottom: 16px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  background: #eeeeee;
 }
