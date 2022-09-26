@@ -10,7 +10,6 @@ body {
   background: #aaa;
   color: #333;
   /* I'll give you this one for free lol */
-  /* KEKW */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,11 +23,15 @@ body {
   box-shadow: 2px 4px 16px rgba(0,0,0,.2);
 }
 
+/* TOP added display: flex;, gap of 16px and padding of 16px to .modal selector. I only added padding of 20px */
+
 .container {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
 }
+
+/* TOP did not add a container selector at all */
 
 .icon {
   color: royalblue;
@@ -43,14 +46,21 @@ body {
   justify-content: center;
 }
 
-/* Might need the header and text have flex-direction: column; then center both afterwards */
-/* Make sure HTML is added first before starting this */
+/* TOP added a flex-shrink of 0 to prevent the icon from getting smashed by the text. This is what they were talking about on the Hint they gave but depended 
+on approach to the solution. */
 
 .header {
   font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 
-/* Create a .text class selector here? After HTML is added */
+/* In TOP's header selector, font-weight was 700 as opposed to my choice of "bold" & justify-content was space-between, not center. Their font-size was 18px instead 
+of my choice of 20px. TOP added a margin-bottom of 8px instead of my solution which took up an additional line of code (margin-left AND margin-bottom of 15px) */
 
 .close-button {
   background: #eee;
@@ -63,7 +73,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
 }
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 57px;
+}
+
+/* TOP only needed to add margin-bottom of 16px to their text selector thanks to the other CSS and HTML added earlier. I had to end up adding margin-left of 57px in 
+addition to display: flex, a flex-direction of column and align-items: center;  just to get it to look right */
 
 button {
   padding: 8px 16px;
@@ -75,6 +96,7 @@ button.continue {
   background: royalblue;
   border: 1px solid royalblue;
   color: white;
+  margin-left: 50px;
 }
 
 button.cancel {
@@ -82,3 +104,5 @@ button.cancel {
   border: 1px solid #ddd;
   color: royalblue;
 }
+
+/* Overall, despite getting to the same result, TOP's solution was simpler and cleaner. Required way less lines of CSS */
