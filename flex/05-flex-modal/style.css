@@ -20,7 +20,14 @@ body {
   background: white;
   width: 480px;
   border-radius: 10px;
+  padding: 20px;
   box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
 }
 
 .icon {
@@ -35,6 +42,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* Might need the header and text have flex-direction: column; then center both afterwards */
+/* Make sure HTML is added first before starting this */
+
+.header {
+  font-weight: bold;
+}
+
+/* Create a .text class selector here? After HTML is added */
 
 .close-button {
   background: #eee;
@@ -52,6 +68,7 @@ body {
 button {
   padding: 8px 16px;
   border-radius: 8px;
+  margin-top: 16px;
 }
 
 button.continue {
