@@ -7,9 +7,12 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+/* TOP added display: flex; and flex-direction: column; to the body */
+
 .header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 350px;
   /* align-items: center; */
 }
 
@@ -19,6 +22,8 @@ a {
   text-decoration: none;
 }
 
+/* The color mystery is solved! TOP used #666. No font-weight at all though */
+
 ul {
   display: flex;
   margin: 8px;
@@ -27,15 +32,24 @@ ul {
   list-style-type: none;
 }
 
+/* TOP had margin and padding at 0 with a gap of 16px */
+
 .content {
+  position: relative;
+  min-width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* flex: 1; */
 }
 
-/* Do we need a group selector here named ".content .???" and place flex: 1 or flex: 1 1 auto; under it? */
+/* TOP had flex: 1; instead of position: relative; and min-width: fit-content. I tried both flex: 1 and flex: 1 1 auto. Neither worked here */
+
+/* .container .content {
+  flex: 1 1 auto;
+} */
+
+/* TOP did a different group selector, not this one (see further below) */
 
 img {
   width: 600px;
@@ -49,6 +63,8 @@ button {
   background: #eee;
 }
 
+/* TOP added 16px next to 8px on padding for the button to give left and right sides additional padding */
+
 input {
   border: 1px solid #ddd;
   border-radius: 16px;
@@ -57,9 +73,18 @@ input {
   margin-bottom: 16px;
 }
 
+/* Here is where TOP had a group selector of .header, .footer combined. Here they placed display: flex; justify-content: space-between; and a padding of 16px. */
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
+  /* align-items: flex-end */
   background: #eeeeee;
+  /* margin-top: 465px */
 }
+
+/* Weird. Instructions told me to use #eeeeee but TOP just used #eee here on the footer background. All the flexing took place in the group selector, not here.
+/* Combining header and footer and putting the flex properties there was the better solution, since they had to be formatted the same.
