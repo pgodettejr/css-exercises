@@ -6,37 +6,27 @@ body {
   min-height: 100vh;
 }
 
-.header {
+.header,
+.footer {
   display: flex;
   align-items: center;
+  height: 72px;
+}
+
+.header {
   font-size: 32px;
   font-weight: 900;
-  height: 72px;
   background: darkmagenta;
   color: white;
   padding-left: 16px;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 72px;
-  background: #eee;
-  color: darkmagenta;
-}
-
 .sidebar {
-  /* margin-top: -16px; */
-  /* flex-direction: column; */
-  align-items: center;
+  /* align-items: center; */
   width: 300px;
   height: 100%;
   background: royalblue;
-  flex: 1 0 auto;
+  flex: 1;
 }
 
 a {
@@ -49,16 +39,16 @@ a {
 ul {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   gap: 16px;
   list-style-type: none;
 }
 
 .deck {
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: flex-end;
+  flex: auto;
 }
 
 .card {
@@ -72,3 +62,12 @@ ul {
 
 /* Define space that the cards take up so the flex properties work as intended. Cards take up all available space above footer */
 /* Cards arranged horizontally in addition to wrapping when they run out of room on the page. */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  background: #eee;
+  color: darkmagenta;
+}
