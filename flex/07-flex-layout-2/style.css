@@ -6,6 +6,8 @@ body {
   min-height: 100vh;
 }
 
+/* TOP had the exact same additions to the body that I did */
+
 .header,
 .footer {
   display: flex;
@@ -21,13 +23,46 @@ body {
   padding-left: 16px;
 }
 
+/* TOP did not do a group selector for header & footer and chose to flex them separately with the exact properties I had in my group. However, TOP did use padding 
+shorthand on the header of padding: 0 16px; instead of my longhand of padding-left: 16px;. Font size & weight were correct.  */
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  background: #eee;
+  color: darkmagenta;
+}
+
+/* TOP did not add a position or bottom property, but justify-content: center; was correct. Again, align-items and display: flex; was added to the group selector 
+above, which TOP did not add (they put them here under footer with everything else instead) */
+
+.main {
+  display: flex;
+  flex: 1 1 0;
+  margin: 0;
+}
+
+/* TOP named this "body" instead of "main" (doesn't really matter much). They used shorthand of flex: 1; instead of my longhand of flex: 1 1 0;. No margin at all. */
+
+.sidebar,
+.deck {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .sidebar {
-  /* align-items: center; */
+  display: flex;
   width: 300px;
   height: 100%;
   background: royalblue;
-  flex: 1;
+  padding: 16px;
+  flex: none;
 }
+
+/* Again, no group selector from TOP at all. They had a flex-shrink: 0; instead of my shorthand of flex: none;. No height or display: flex; added. Padding was 
+correct. I'm pretty sure I don't need display: flex; at all here since it's in the group selector above this. */
 
 a {
   font-size: 24px;
@@ -36,38 +71,39 @@ a {
   text-decoration: none;
 }
 
+/* TOP had the exact same solution, but no padding at all. */
+
 ul {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-around; */
-  gap: 16px;
+  padding: 0;
   list-style-type: none;
 }
 
+/* TOP also had a margin: 0; here. Everything else is correct. */
+
+li {
+  margin-bottom: 12px;
+}
+
+/* I almost nailed this one. It was 16px instead of 12px. */
+
 .deck {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  flex: auto;
+  justify-content: space-around;
+  /* align-items: center; */
+  flex: 1;
 }
+
+/* TOP named this "container" instead of "deck" (again, doesn't matter). They flexed it, but had a padding of 32px & flex-wrap: wrap; instead of my justify-content 
+and shorthand of flex: 1;. I did wrap it but it's in the group selector above (.sidebar, .deck). Probably don't need flex here for same reason as above? */
 
 .card {
   border: 1px solid #eee;
   box-shadow: 2px 4px 16px rgba(0,0,0,.06);
   border-radius: 4px;
-  width: 300px;
-  height: 200px;
+  width: 525px;
+  height: 350px;
   padding: 32px;
 }
 
-/* Define space that the cards take up so the flex properties work as intended. Cards take up all available space above footer */
-/* Cards arranged horizontally in addition to wrapping when they run out of room on the page. */
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  justify-content: center;
-  background: #eee;
-  color: darkmagenta;
-}
+/* TOP had a padding AND margin of 16px, not just my padding alone (of twice the size). I added a height and increased the width. TOP kept the original width of 
+300px with no height added. */ 
