@@ -24,6 +24,7 @@
   color: white;
 }
 
+/* Absolute positioning puts the header & footer in the "right" spots but they no longer take up full column */
 .header {
   background-color: #393f4d;
   /* position: absolute;
