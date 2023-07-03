@@ -76,7 +76,7 @@ body {
   font-weight: normal;
 }
 
-/* I think grid-template is the "issue" here. */
+/* grid-template is not the "issue". */
 .nav {
   background-color: #FF7755;
 
@@ -84,10 +84,12 @@ body {
   grid-row: 2;
 
   display: grid;
-  grid-template: 1fr;
+  /* grid-template: 1fr; */
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.nav ul li {
+.nav ul,
+.nav li {
   font-size: 16px;
   text-transform: uppercase;
 
