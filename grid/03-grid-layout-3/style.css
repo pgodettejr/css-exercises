@@ -7,9 +7,10 @@ body {
   min-height: 100vh;
 }
 
+/* No min-height or grid rows in TOP solution */
 .container {
   text-align: center;
-
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 0.5fr 5fr 0.5fr;
@@ -24,6 +25,7 @@ body {
   color: white;
 }
 
+/* No grid-row in TOP solution */
 .header {
   background-color: #393f4d;
 
@@ -34,12 +36,35 @@ body {
   grid-template-columns: 1fr 2fr;
 }
 
+/* TOP had logo class selector but with only justify-self: start  */
 .logo {
   grid-column: 1;
   text-align: start;
+  align-self: center;
 }
 
-/* Text still breaks/wraps after first word and starts a new line. All words should be on one line. */
+/* Overcomplicated the CSS. Just needed to grid the menu, split ul and li & put template on the ul with some margins */
+/* TOP just had align-self: center for the .menu, kept the li and ul grouped and only added list-style-type: none to it */
+.menu {
+  grid-column: 2;
+  display: grid;
+  place-content: center;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style-type: none;
+  justify-content: end;
+}
+
+.menu li {
+  font-size: 16px;
+  text-align: end;
+  margin: 0 8em;
+}
+
+/* Old, worse CSS. Text would still break/wrap after first word and start a new line. Part of this was TOP's CSS.
 .menu ul,
 .menu li {
   font-size: 16px;
@@ -47,17 +72,23 @@ body {
   grid-template-columns: repeat(4, 1fr);
   list-style-type: none;
 
-  margin-left: 1em;
+  margin: 0 1em;
   text-align: start;
-  /* place-self: center; */
-}
+  justify-self: end;
+} */
 
+/* Same thing: grid the sidebar, center the items here & MAYBE some padding */
+/* TOP had no grid-column in .sidebar or any padding. Had side-content & photo grouped with a grid & align-items: center */
 .sidebar {
   background-color: #FF7755;
 
   grid-column: 1;
   grid-row: 2 / 4;
   gap: 50px;
+
+  display: grid;
+  justify-items: center;
+  align-content: center;
 }
 
 .sidebar .photo {
@@ -66,17 +97,19 @@ body {
   font-size: 12px;
   font-weight: normal;
   border-radius: 10px;
+  padding: 80px 180px;
 }
-
 
 .sidebar .side-content {
   background-color: white;
   color: black;
   font-size: 16px;
   font-weight: normal;
+  padding: 80px 215px;
 }
 
-/* grid-template is not the "issue". */
+/* Overcomplicated the CSS. Just needed to grid the nav, split ul and li & put template on the ul with some margins */
+/* TOP just added what I have in .nav ul without repeat function */
 .nav {
   background-color: #FF7755;
 
@@ -84,23 +117,40 @@ body {
   grid-row: 2;
 
   display: grid;
-  /* grid-template: 1fr; */
-  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
 }
 
-.nav ul,
-.nav li {
-  font-size: 16px;
-  text-transform: uppercase;
-
-  /* grid-column: 2 / 3;
-  grid-row: 2; */
-
+.nav ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   list-style-type: none;
 }
 
+.nav li {
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: end;
+  margin: 0 15em;
+}
+
+/* Old, worse CSS. Group selector changed the positioning of the list items with this CSS, but descendant combinator didn't
+.nav ul,
+.nav li {
+  font-size: 16px;
+  text-transform: uppercase;
+
+  grid-column: 2 / 3; <-- comment these out?
+  grid-row: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(auto-fit, clamp(125px, max-content, 1fr)); <-- comment this out
+  list-style-type: none;
+  margin: 0 5rem;
+  justify-self: end;
+} */
+
+/* Again no setting up a grid for TOP since it wasn't even set in container */
 .article {
   background-color: #bccbde;
 
@@ -127,6 +177,7 @@ body {
   height: 200px;
 }
 
+/* TOP had padding of 5px here */
 .card p {
   color: black;
   font-weight: normal;
@@ -138,6 +189,7 @@ body {
   text-align: center;
 }
 
+/* TOP did not set a row here  */
 .footer {
   background-color: #393f4d;
 
@@ -145,9 +197,11 @@ body {
   grid-row: 4;
 }
 
+/* No additional edits from TOP here, unlike our padding, margin and text align */
 .footer p {
   font-size: 13px;
   font-weight: normal; 
-  /* text-align: center;
-  place-self: center; */
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
 }
